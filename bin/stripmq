@@ -1,0 +1,65 @@
+#!/usr/bin/env node
+
+process.title = 'stripmq';
+
+var nopt = require('nopt');
+var stripmq = require('../stripmq');
+var fs = require("fs");
+var path = require("path");
+
+
+var knownOptions = {
+        "type": ['screen', 'print'], // TODO: add other types
+        "width": Number,
+        "device-width":  Number,
+        "height": Number,
+        "device-height": Number,
+        "resolution": String,
+        "orientation": ["landscape", "portrait"],
+        "aspect-ratio": Number,
+        "color": Number,
+        "input": String,
+        "output": String
+        };
+
+var aliases = {
+  h: '--help',
+  V: '--version',
+  v: '--verbose'
+  };
+
+var parsed = nopt(knownOptions, aliases);
+var options = {
+  type: parsed.type,
+  width: parsed.width,
+  "device-width": parsed['device-width'],
+  height: parsed.height,
+  "device-height": parsed['device-height'],
+  resolution: parsed.resolution,
+  orientation: parsed.orientation,
+  "aspect-ratio": parsed['aspect-ratio'],
+  color: parsed.color
+};
+
+var input_path,
+    output_path;
+fs.exists(parsed.input, function(exists) {
+
+  if (exists) {
+    // try and strip the mq
+    try {
+        var input = fs.readFileSync(parsed.input, {encoding: 'utf-8'});
+        var result = stripmq(input, options);
+
+        fs.writeFile(parsed.output, result);
+    }
+    catch (e) {
+        var err = new Error('Stripping media queries failed.');
+        if (e.msg) {
+            err.message += ', ' + e.msg + '.';
+        }
+        err.origError = e;
+        console.log(err);
+    }
+  }
+});

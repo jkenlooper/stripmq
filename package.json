@@ -1,0 +1,36 @@
+{
+  "name": "stripmq",
+  "version": "0.0.5",
+  "description": "Strip media queries from stylesheets",
+  "bin": {
+    "stripmq": "bin/stripmq"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "node bin/stripmq --input test/input.css --width 1000 --type screen --output /dev/null"
+  },
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jkenlooper/stripmq"
+  },
+  "keywords": [
+    "mediaquery",
+    "css"
+  ],
+  "main": "stripmq.js",
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jkenlooper/stripmq/issues"
+  },
+  "homepage": "https://github.com/jkenlooper/stripmq",
+  "dependencies": {
+    "nopt": "^2.2.1",
+    "css-parse": "^1.7.0",
+    "css-mediaquery": "^0.1.2",
+    "css-stringify": "^1.4.1"
+  }
+}
