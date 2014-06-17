@@ -22,9 +22,13 @@ function stripMediaQueries (ast, options) {
 /**
  * strip media queries
  * @param   {string} input
+ * @param   {object} options
+ * @param   {object} formatOptions
  * @returns {string} output
  */
-function StripMQ(input, options) {
+function StripMQ(input, options, formatOptions) {
+    options || (options = {});
+    formatOptions || (formatOptions = {});
 
     options = {
         type:            options.type || 'screen',
@@ -40,7 +44,7 @@ function StripMQ(input, options) {
 
     var tree = css.parse(input);
     tree = stripMediaQueries(tree, options);
-    return css.stringify(tree);
+    return css.stringify(tree, formatOptions);
 }
 
 module.exports = StripMQ;
