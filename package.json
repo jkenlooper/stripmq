@@ -33,8 +33,7 @@
   "homepage": "https://github.com/jkenlooper/stripmq",
   "dependencies": {
     "nopt": "^2.2.1",
-    "css-parse": "^1.7.0",
-    "css-mediaquery": "^0.1.2",
-    "css-stringify": "^1.4.1"
+    "css": "^1.6.0",
+    "css-mediaquery": "^0.1.2"
   }
 }
