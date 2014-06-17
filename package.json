@@ -21,7 +21,11 @@
     "css"
   ],
   "main": "stripmq.js",
-  "author": "",
+  "author": "Jake Hickenlooper <jake@weboftomorrow.com>",
+  "contributors": [
+    "Jorik Tangelder (http://joriktangelder.nl/)",
+    "Tilo <tilomitra@gmail.com> (http://www.tilomitra.com/)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jkenlooper/stripmq/issues"
