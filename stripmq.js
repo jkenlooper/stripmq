@@ -1,7 +1,6 @@
 'use strict';
 
-var parse = require('css-parse'),
-    stringify = require('css-stringify'),
+var css = require('css'),
     mediaQuery = require('css-mediaquery');
 
 
@@ -39,9 +38,9 @@ function StripMQ(input, options) {
         color:           options.color || 3
     };
 
-    var tree = parse(input);
+    var tree = css.parse(input);
     tree = stripMediaQueries(tree, options);
-    return stringify(tree);
+    return css.stringify(tree);
 }
 
 module.exports = StripMQ;
