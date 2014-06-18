@@ -1,6 +1,6 @@
 {
   "name": "stripmq",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Strip media queries from stylesheets",
   "bin": {
     "stripmq": "bin/stripmq"
